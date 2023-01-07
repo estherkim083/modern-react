@@ -1,19 +1,13 @@
 import "./styles.css";
-import CarForm from './components/CarForm';
-import CarList from './components/CarList';
-import CarSearch from './components/CarSearch';
-import CarValue from './components/CarValue';
+import UsersList from "./components/UsersList";
 
 export default function App() {
-  
-
   return (
-    <div className="container" style={{margin: '100px'}}>
-      <CarForm/>
-      <CarList/>
-      <CarSearch/>
-      <CarValue/>
+    <div
+      className="container mx-auto"
+      style={{ margin: "100px", width: "50%" }}
+    >
+      <UsersList />
     </div>
   );
-
 }

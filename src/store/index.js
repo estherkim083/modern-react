@@ -1,11 +1,34 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { carsReducer, addCar, deleteCar, changeSearchTerm } from './slices/carsSlice'
-import { formReducer, changeName, changeCost } from './slices/formSlice'
+import { usersReducer } from "./slices/usersSlice";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { albumsApi } from "./apis/albumsApi";
+import { photosApi } from "./apis/photosApi";
 
-const store= configureStore({
-    reducer: {
-        cars: carsReducer,
-        form: formReducer
-    }
-})
-export {store, changeName, changeCost, addCar, deleteCar, changeSearchTerm}
+export const store = configureStore({
+  reducer: {
+    users: usersReducer,
+    [albumsApi.reducerPath]: albumsApi.reducer,
+    [photosApi.reducerPath]: photosApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware()
+      .concat(albumsApi.middleware)
+      .concat(photosApi.middleware);
+  },
+});
+
+setupListeners(store.dispatch);
+
+export * from "./thunks/fetchUsers";
+export * from "./thunks/addUser";
+export * from "./thunks/removeUser";
+export {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} from "./apis/albumsApi";
+export {
+  useAddPhotoMutation,
+  useRemovePhotoMutation,
+  useFetchPhotosQuery,
+} from "./apis/photosApi";

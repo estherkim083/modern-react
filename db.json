@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "name": "Dave Osinski",
+      "id": 2
+    },
+    {
+      "name": "Camille Kuhic",
+      "id": 3
+    },
+    {
+      "name": "Faith Mills",
+      "id": 4
+    }
+  ],
+  "albums": [
+    {
+      "userId": 3,
+      "title": "Oriental Fresh Computer",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "Practical Fresh Pants",
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "title": "Intelligent Cotton Computer",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "title": "Intelligent Plastic Pizza",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "title": "Elegant Soft Table",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "title": "Generic Frozen Car",
+      "id": 15
+    }
+  ],
+  "photos": []
+}
